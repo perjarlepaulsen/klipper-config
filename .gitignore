@@ -1,0 +1,19 @@
+# ----- Runtime / støy -----
+*.log
+*.tmp
+*.swp
+*.bak
+*.old
+*.bkp
+
+# ----- Store/backups (unngå repo-bloat) -----
+config-*.zip
+*.zip
+
+# ----- Historiske printer snapshots (valgfritt) -----
+# Du har fleire printer-YYYYMMDD_*.cfg – dei er fine å ha som filer,
+# men du får betre historikk i git. Ignorer dei:
+printer-*.cfg
+
+# ----- Hvis nokon lagrer gcodes her ved uhell -----
+*.gcode
