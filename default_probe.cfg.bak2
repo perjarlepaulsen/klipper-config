@@ -53,10 +53,8 @@ gcode:
     # --> Uncomment the line below to use nozzle cleaning during the START_PRINT procedure.
     #CLEAN_NOZZLE_BRUSH CLEANING_TEMP={EXTRUDER_TEMP}
 
-    # wait for bed temperature (skip if BED=0)
-    {% if BED_TEMP > 0 %}
+    # wait for bed temperature
     TEMPERATURE_WAIT SENSOR=heater_bed MINIMUM={BED_TEMP - 1} MAXIMUM={BED_TEMP + 1}
-    {% endif %}
     
     # home z while hot
     G28 Z
@@ -82,7 +80,6 @@ gcode:
     # move to starting position (nozzle already at target temp)
     G1 X{PURGE_LINE_X} Y{PURGE_LINE_START_Y} F{XY_SPEED} 
     G1 Z{PURGE_LINE_Z} F{Z_SPEED} 
-    G92 E0 # reset E before purge regardless of previous print state
 
     # priming line in y-direction
     G1 Y{PURGE_LINE_END_Y} E{PURGE_LINE_EXTRUSION} F{PURGE_LINE_FEEDRATE}
